@@ -17,7 +17,7 @@ const Register = () => {
   //     console.log(tenantId);
   //   }
 
-  function formSubmit() {
+  async function formSubmit() {
     // CreateTenant();
 
     let newUser = {
@@ -28,9 +28,12 @@ const Register = () => {
 
     console.log(newUser);
 
-    axios.post(url, newUser).then((res) => {
-      console.log(res);
-    });
+    await axios
+      .post(url, newUser)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
   }
 
   return (
